@@ -40,7 +40,7 @@
             </button>
           </div>
 
-          <div id="collapsable-nav" class="collapse navbar-collapse">
+          <div id="collapsable-nav" class="collapse navbar-collapse" ng-controller="MainController as main">
             <ul id="nav-list" class="nav navbar-nav navbar-right">
               <li id="navHomeButton" class="visible-xs">
                 <a href="index.html">
@@ -51,11 +51,11 @@
                   <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
               </li>
               <li>
-                <a ui-sref="public.myinfo">
-                  <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> My Info</a>
+                <a ui-sref="myInfo" ng-hide="!main.userServiceData">
+                  <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs" > My Info</a>
               </li>
               <li>
-                <a ui-sref="public.signup">
+                <a ui-sref="public.menusignup" ng-hide="main.userServiceData">
                   <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sign Up</a>
               </li>
               <li id="phone" class="hidden-xs">
@@ -115,6 +115,8 @@
     <script src="lib/bootstrap.min.js"></script>
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
 
     <!-- Main Restaurant Module -->
     <script src="src/restaurant.module.js"></script>
@@ -124,16 +126,20 @@
     <script src="src/common/loading/loading.component.js"></script>
     <script src="src/common/loading/loading.interceptor.js"></script>
     <script src="src/common/menu.service.js"></script>
+    <script src="src/common/user.service.js"></script>
 
     <!-- Public Module -->
     <script src="src/public/public.module.js"></script>
     <script src="src/public/public.routes.js"></script>
+    <script src="src/common/main.controller.js"></script>
     <script src="src/public/menu/menu.controller.js"></script>
     <script src="src/public/menu-category/menu-category.component.js"></script>
     <script src="src/public/menu-items/menu-items.controller.js"></script>
     <script src="src/public/menu-item/menu-item.component.js"></script>
-    <script src="src/public/signup/signup.controller.js"></script>
-    <script src="src/public/myinfo/myinfo.controller.js"></script>
+    <script src="src/public/menu-signup/menu-signup.controller.js"></script>
+    <script src="src/public/my-info/my-info.controller.js"></script>
+    
+
 
     <!-- ADMIN SITE -->
 

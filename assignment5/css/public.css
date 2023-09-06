@@ -111,10 +111,20 @@ h3.menu-item-title {
   font-size: .9em;
   font-style: italic;
 }
-span.alert-danger span.alert-success {
-    float: right;
-    padding: 0 1% 0 1%;
-    font-weight: bold;
+
+.center-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* this will cover the full height of the viewport */
+  text-align: center; /* to align the text in the center */
+}
+
+input.black-text {
+  color: black;
+}
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
 }
 /* END SINGLE CATEGORY PAGE */
 
