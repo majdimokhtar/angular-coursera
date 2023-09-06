@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Registration</h2>
+          <form name="regForm" novalidate>
+            <div class="form-group">
+              <input type="text" class="form-control" name="first_name" placeholder="Pick a First Name" ng-model="reg.first_name" required minlength="2" ng-maxlength="10">
+              <div class="invalid-feedback" ng-if="regForm.first_name.$error.minlength || regForm.first_name.$error.required">
+                First Name must be at least 2 characters long
+              </div>
+              <div class="invalid-feedback" ng-if="regForm.first_name.$error.maxlength">
+                First Name must not be longer than 10 characters
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="last_name" placeholder="Pick a Last Name" ng-model="reg.last_name" required minlength="4" ng-maxlength="10">
+              <div class="invalid-feedback" ng-if="regForm.last_name.$error.minlength || regForm.last_name.$error.required">
+                Last Name must be at least 4 characters long
+              </div>
+              <div class="invalid-feedback" ng-if="regForm.last_name.$error.maxlength">
+                Last Name must not be longer than 10 characters
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" placeholder="Email" ng-model="reg.email" required>
+              <div class="invalid-feedback" ng-if="regForm.email.$error.email">
+                Must be a valid email address in the format: handle@domain
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####" ng-model="reg.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+              <div class="invalid-feedback" ng-if="regForm.phone.$error.pattern">
+                Phone must be in the format ###-###-####
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="short_name" placeholder="Favorite Item Short Name" ng-model="reg.short_name" required ng-change="reg.validateItem()">
+              <div class="invalid-feedback" ng-if="regForm.short_name.$error.required">
+                Must enter a shortname for your favorite item
+              </div>
+            </div>
+            <button class="btn btn-primary" ng-disabled="regForm.$invalid" ng-click="reg.submit()">Submit</button>
+            <div class="mt-2">
+              {{ regForm.$valid ? "Form is valid" : "Form is not yet valid, check the fields." }}
+            </div>
+            <div class="mt-2">
+              {{ reg.error }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
