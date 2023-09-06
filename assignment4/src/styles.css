@@ -1,0 +1,11 @@
+header {
+    background-color: #F3E6E3;
+    margin-bottom: 5%;
+}
+header > h1 {
+    font-size: 300%;
+}
+input#categoriesButton {
+    position: absolute;
+    left: calc(90% / 2);
+}
